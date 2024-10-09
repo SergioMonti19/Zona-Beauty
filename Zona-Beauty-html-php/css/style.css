@@ -1721,7 +1721,7 @@ pre code {
 .table-light,
 .table-light > th,
 .table-light > td {
-  background-color: #FFFFFFbfb;
+  background-color: #FFFFFF;
 }
 
 .table-light th,
@@ -4891,7 +4891,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .alert-warning {
   color: #856404;
-  background-color: #FFFFFF3cd;
+  background-color: #FFFFF3;
   border-color: #ffeeba;
 }
 
@@ -4919,8 +4919,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 .alert-light {
   color: #847d7c;
-  background-color: #FFFFFFcfc;
-  border-color: #FFFFFFbfb;
+  background-color: #FFFFFFcc;
+  border-color: #FFFFFFcc;
 }
 
 .alert-light hr {
