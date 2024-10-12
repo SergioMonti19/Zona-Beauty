@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+$usuario =  $_SESSION['id_usuario'];
+
+if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +17,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,12 +27,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -33,9 +41,9 @@
         <div class="row py-2 px-lg-5">
             <div class="col-lg-6 text-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center">
-                    <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                    <small><i class="fa fa-phone-alt mr-2"></i>+2257 7777</small>
                     <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
+                    <small><i class="fa fa-envelope mr-2"></i>zonabeauty@gmail.com</small>
                 </div>
             </div>
             <div class="col-lg-6 text-right">
@@ -65,7 +73,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="index.html" class="navbar-brand ml-lg-3">
+            <a href="../../index.html" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 text-primary"><span class="text-dark">Zona</span> Beauty</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -73,22 +81,22 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="index.html" class="nav-item nav-link">Inicio</a>
-                    <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                    <a href="service.html" class="nav-item nav-link">Servicios</a>
-                    <a href="price.html" class="nav-item nav-link">Precios</a>
+                    <a href="../../index.html" class="nav-item nav-link">Inicio</a>
+                    <a href="../../about.html" class="nav-item nav-link">Nosotros</a>
+                    <a href="../../service.html" class="nav-item nav-link">Servicios</a>
+                    <a href="../../price.html" class="nav-item nav-link">Precios</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="appointment.html" class="dropdown-item">Cita</a>
-                            <a href="opening.html" class="dropdown-item">Horario</a>
-                            <a href="team.html" class="dropdown-item">Nuestro Equipo</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                            <a href="../../appointment.html" class="dropdown-item">Cita</a>
+                            <a href="../../opening.html" class="dropdown-item">Horario</a>
+                            <a href="../../team.html" class="dropdown-item">Nuestro Equipo</a>
+                            <a href="../../testimonial.html" class="dropdown-item">Testimonios</a>
                         </div>
                     </div>
                     <a href="contact.html" class="nav-item nav-link active">Contacto</a>
                 </div>
-                <a href="" class="btn btn-primary d-none d-lg-block">Reservar Ahora</a>
+                <a href="../Login.php" class="btn btn-primary d-none d-lg-block">Reservar Ahora</a>
             </div>
         </nav>
     </div>
@@ -170,7 +178,7 @@
         <div class="container pt-5">
             <div class="row">
                 <div class="col-lg-6 pr-lg-5 mb-5">
-                    <a href="index.html" class="navbar-brand">
+                    <a href="../../index.html" class="navbar-brand">
                         <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
                     </a>
                     <p>En Zona Beauty, ofrecemos los mejores tratamientos de uñas. Nos dedicamos a cuidar y embellecer
@@ -251,20 +259,20 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="../../lib/waypoints/waypoints.min.js"></script>
+    <script src="../../lib/counterup/counterup.min.js"></script>
+    <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../../lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="../../mail/jqBootstrapValidation.min.js"></script>
+    <script src="../../mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>

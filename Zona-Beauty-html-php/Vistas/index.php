@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+$usuario =  $_SESSION['id_usuario'];
+
+if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,50 +16,50 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../img/favicon.ico" rel="icon">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container-fluid bg-light d-none d-lg-block">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-left mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center">
-                    <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
-                    <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
-                </div>
+<div class="container-fluid bg-light d-none d-lg-block">
+    <div class="row py-2 px-lg-5">
+        <div class="col-lg-6 text-left mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center">
+                <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
+                <small class="px-3">|</small>
+                <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
             </div>
-            <div class="col-lg-6 text-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-primary px-2" href="https://www.facebook.com/profile.php?id=100091195024985&locale=es_LA">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-primary px-2" href="https://www.instagram.com/zonabeautybybm/">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-primary pl-2" href="">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
+        </div>
+        <div class="col-lg-6 text-right">
+            <div class="d-inline-flex align-items-center">
+                <a class="text-primary px-2" href="https://www.facebook.com/profile.php?id=100091195024985&locale=es_LA">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a class="text-primary px-2" href="https://www.instagram.com/zonabeautybybm/">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="text-primary pl-2" href="">
+                    <i class="fab fa-youtube"></i>
+                </a>
             </div>
         </div>
     </div>
+</div>
 
 
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
+        <a href="#" class="navbar-brand ml-lg-3">
             <h1 class="m-0 text-primary"><span class="text-dark">Zona</span> Beauty</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -59,28 +67,21 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
-                <a href="index.html" class="nav-item nav-link active">Inicio</a>
-                <a href="about.html" class="nav-item nav-link">Nosotros</a>
-                <a href="service.html" class="nav-item nav-link">Servicios</a>
-                <a href="price.html" class="nav-item nav-link">Precios</a>
+                <a href="usuario/about.php" class="nav-item nav-link">Nosotros</a>
+                <a href="service.php" class="nav-item nav-link">Servicios</a>
+                <a href="price.php" class="nav-item nav-link">Precios</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="appointment.html" class="dropdown-item">Citas</a>
-                        <a href="opening.html" class="dropdown-item">Horario</a>
-                        <a href="team.html" class="dropdown-item">Nuestro Equipo</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                        <a href="appointment.php" class="dropdown-item">Citas</a>
+                        <a href="opening.php" class="dropdown-item">Horario</a>
+                        <a href="team.php" class="dropdown-item">Nuestro Equipo</a>
+                        <a href="testimonial.php" class="dropdown-item">Testimonios</a>
                     </div>
                 </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Ingresar</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="Vistas/Login.php" class="dropdown-item">Login</a>
-                        <a href="Vistas/Registro.php" class="dropdown-item">Registrarse</a>
-                    </div>
-                </div>
+                <a href="contact.php" class="nav-item nav-link">Contacto</a>
             </div>
-            <a href="Vistas/Login.php" class="btn btn-primary d-none d-lg-block">Reservar Ahora</a>
+            <a href="../Controlador/cerrarSesion.php" class="btn btn-primary d-none d-lg-block">Cerrar Sesión</a>
         </div>
     </nav>
 </div>
@@ -95,32 +96,53 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item position-relative active" style="min-height: 100vh;">
-                <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+                <img class="position-absolute w-100 h-100" src="../img/carousel-1.jpg" style="object-fit: cover;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="Vistas/Login.php">Reservar Cita</a>
+                        <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Bienvenid@</h6>
+                        <h3 class="display-3 text-capitalize text-white mb-3">
+                        <?php
+                            if (isset($_SESSION['nombreCompleto'])) {
+                                echo htmlspecialchars($_SESSION['nombreCompleto']) . "!";
+                            }
+                        ?>
+                        </h3>
+                        <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item position-relative" style="min-height: 100vh;">
-                <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
+                <img class="position-absolute w-100 h-100" src="../img/carousel-2.jpg" style="object-fit: cover;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Zona Beauty - Uñas</h6>
-                        <h3 class="display-3 text-capitalize text-white mb-3">Decoración de Uñas</h3>
-                        <p class="mx-md-5 px-5">Transforma tus uñas en obras de arte con nuestros servicios de decoración.</p>
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Reservar Cita</a>
+                        <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Bienvenid@</h6>
+                        <h3 class="display-3 text-capitalize text-white mb-3">
+                            <?php
+                            if (isset($_SESSION['nombreCompleto'])) {
+                                echo htmlspecialchars($_SESSION['nombreCompleto']) . "!";
+                            }
+                            ?>
+                        </h3>
+                        <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
                     </div>
                 </div>
             </div>
             <div class="carousel-item position-relative" style="min-height: 100vh;">
-                <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
+                <img class="position-absolute w-100 h-100" src="../img/carousel-3.jpg" style="object-fit: cover;">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 900px;">
-                        <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Zona Beauty - Uñas</h6>
-                        <h3 class="display-3 text-capitalize text-white mb-3">Decoración de Uñas</h3>
-                        <p class="mx-md-5 px-5">Transforma tus uñas en obras de arte con nuestros servicios de decoración.</p>
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Reservar Cita</a>
+                        <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Bienvenid@</h6>
+                        <h3 class="display-3 text-capitalize text-white mb-3">
+                            <?php
+                            if (isset($_SESSION['nombreCompleto'])) {
+                                echo htmlspecialchars($_SESSION['nombreCompleto']) . "!";
+                            }
+                            ?>
+                        </h3>
+                        <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
                     </div>
                 </div>
             </div>
@@ -132,7 +154,7 @@
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-lg-6 pb-5 pb-lg-0">
-                <img class="img-fluid w-100" src="img/about.jpg" alt="Sobre nosotros">
+                <img class="img-fluid w-100" src="../img/about.jpg" alt="Sobre nosotros">
             </div>
             <div class="col-lg-6">
                 <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">Nosotros</h6>
@@ -159,7 +181,7 @@
 <!-- About End -->
 
 
-    <!-- Service Start -->
+<!-- Service Start -->
 <div class="container-fluid px-0 py-5 my-5">
     <div class="row mx-0 justify-content-center text-center">
         <div class="col-lg-6">
@@ -169,7 +191,7 @@
     </div>
     <div class="owl-carousel service-carousel">
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-1.jpg" alt="">
+            <img class="img-fluid" src="../img/service-1.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Manicura Clásica</h4>
                 <p class="text-white px-3 mb-3">Un tratamiento completo para embellecer tus manos y uñas.</p>
@@ -179,7 +201,7 @@
             </div>
         </div>
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-2.jpg" alt="">
+            <img class="img-fluid" src="../img/service-2.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Pedicura Spa</h4>
                 <p class="text-white px-3 mb-3">Relájate con nuestra pedicura spa, ideal para cuidar tus pies.</p>
@@ -189,7 +211,7 @@
             </div>
         </div>
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-3.jpg" alt="">
+            <img class="img-fluid" src="../img/service-3.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Uñas Acrílicas</h4>
                 <p class="text-white px-3 mb-3">Dale un toque especial a tus manos con nuestras uñas acrílicas.</p>
@@ -199,7 +221,7 @@
             </div>
         </div>
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-4.jpg" alt="">
+            <img class="img-fluid" src="../img/service-4.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Decoración de Uñas</h4>
                 <p class="text-white px-3 mb-3">Haz que tus uñas se vean increíbles con nuestra decoración personalizada.</p>
@@ -209,7 +231,7 @@
             </div>
         </div>
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-5.jpg" alt="">
+            <img class="img-fluid" src="../img/service-5.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Manicura Francesa</h4>
                 <p class="text-white px-3 mb-3">La clásica manicura francesa para un look elegante y natural.</p>
@@ -219,7 +241,7 @@
             </div>
         </div>
         <div class="service-item position-relative">
-            <img class="img-fluid" src="img/service-6.jpg" alt="">
+            <img class="img-fluid" src="../img/service-6.jpg" alt="">
             <div class="service-text text-center">
                 <h4 class="text-white font-weight-medium px-3">Tratamiento de Uñas</h4>
                 <p class="text-white px-3 mb-3">Fortalece y cuida tus uñas con nuestros tratamientos especiales.</p>
@@ -285,13 +307,13 @@
 <!-- Service End -->
 
 
-    <!-- Open Hours Start -->
+<!-- Open Hours Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-6" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="img/opening.jpg" alt="" width="500" height="600";">
+                    <img class="position-absolute w-100 h-100" src="../img/opening.jpg" alt="" width="500" height="600";">
                 </div>
             </div>
             <div class="col-lg-6 pt-5 pb-lg-5">
@@ -304,7 +326,7 @@
                         <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Sábados : 9:00 AM - 6:00 PM</li>
                         <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lunes : Cerrado</li>
                     </ul>
-                    <a href="Vistas/Login.php" class="btn btn-primary mt-2">Reservar Ahora</a>
+                    <a href="#" class="btn btn-primary mt-2">Reservar Ahora</a>
                 </div>
             </div>
         </div>
@@ -319,7 +341,7 @@
         <div class="row">
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="img/pricing.jpg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="../img/pricing.jpg" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-7 pt-5 pb-lg-5">
@@ -377,8 +399,8 @@
     </div>
 </div>
 <!-- Pricing End -->
- 
-    <!-- Team Start -->
+
+<!-- Team Start -->
 <div class="container-fluid py-5">
     <div class="container pt-5">
         <div class="row justify-content-center text-center">
@@ -390,7 +412,7 @@
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="team position-relative overflow-hidden mb-5">
-                    <img class="img-fluid" src="img/team-1.jpg" alt="" width="600" height="200">
+                    <img class="img-fluid" src="../img/team-1.jpg" alt="" width="600" height="200">
                     <div class="position-relative text-center">
                         <div class="team-text bg-primary text-white">
                             <h5 class="text-white text-uppercase">Bertha Monti</h5>
@@ -410,12 +432,12 @@
 </div>
 <!-- Team End -->
 
-    <!-- Testimonial Start -->
+<!-- Testimonial Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-lg-6 pb-5 pb-lg-0">
-                <img class="img-fluid w-100" src="img/testimonial.jpg" alt="">
+                <img class="img-fluid w-100" src="../img/testimonial.jpg" alt="">
             </div>
             <div class="col-lg-6">
                 <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">Testimonial</h6>
@@ -424,7 +446,7 @@
                     <div class="position-relative">
                         <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
                         <div class="d-flex align-items-center mb-3">
-                            <img class="img-fluid rounded-circle" src="img/testimonial-1.jpg" style="width: 60px; height: 60px;" alt="">
+                            <img class="img-fluid rounded-circle" src="../img/testimonial-1.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
                                 <span>Profesión</span>
@@ -435,7 +457,7 @@
                     <div class="position-relative">
                         <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
                         <div class="d-flex align-items-center mb-3">
-                            <img class="img-fluid rounded-circle" src="img/testimonial-2.jpg" style="width: 60px; height: 60px;" alt="">
+                            <img class="img-fluid rounded-circle" src="../img/testimonial-2.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
                                 <span>Profesión</span>
@@ -446,7 +468,7 @@
                     <div class="position-relative">
                         <i class="fa fa-3x fa-quote-right text-primary position-absolute" style="top: -6px; right: 0;"></i>
                         <div class="d-flex align-items-center mb-3">
-                            <img class="img-fluid rounded-circle" src="img/testimonial-3.jpg" style="width: 60px; height: 60px;" alt="">
+                            <img class="img-fluid rounded-circle" src="../img/testimonial-3.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
                                 <span>Profesión</span>
@@ -464,12 +486,12 @@
 </div>
 <!-- Testimonial End -->
 
-    <!-- Footer Start -->
+<!-- Footer Start -->
 <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
     <div class="container pt-5">
         <div class="row">
             <div class="col-lg-6 pr-lg-5 mb-5">
-                <a href="index.html" class="navbar-brand">
+                <a href="index.php" class="navbar-brand">
                     <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
                 </a>
                 <p>Nos especializamos en el cuidado y embellecimiento de uñas de manos y pies. Ofrecemos servicios de alta calidad para que siempre luzcas y te sientas bien.</p>
@@ -535,27 +557,27 @@
 </div>
 <!-- Footer End -->
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="../lib/easing/easing.min.js"></script>
+<script src="../lib/waypoints/waypoints.min.js"></script>
+<script src="../lib/counterup/counterup.min.js"></script>
+<script src="../lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="../lib/tempusdominus/js/moment.min.js"></script>
+<script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+<!-- Contact Javascript File -->
+<script src="../mail/jqBootstrapValidation.min.js"></script>
+<script src="../mail/contact.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+<!-- Template Javascript -->
+<script src="../js/main.js"></script>
 </body>
 
 </html>

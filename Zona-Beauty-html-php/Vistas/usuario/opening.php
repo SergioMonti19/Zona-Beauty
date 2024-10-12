@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+$usuario =  $_SESSION['id_usuario'];
+
+if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +17,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="../../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,12 +27,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -62,7 +70,7 @@
     <!-- Topbar End -->
 
 
-    <!-- Navbar Start -->
+   <!-- Navbar Start -->
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
         <a href="index.html" class="navbar-brand ml-lg-3">
@@ -80,8 +88,8 @@
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="appointment.html" class="dropdown-item active">Cita</a>
-                        <a href="opening.html" class="dropdown-item">Horario</a>
+                        <a href="appointment.html" class="dropdown-item">Cita</a>
+                        <a href="opening.html" class="dropdown-item active">Horario</a>
                         <a href="team.html" class="dropdown-item">Nuestro Equipo</a>
                         <a href="testimonial.html" class="dropdown-item">Testimonios</a>
                     </div>
@@ -95,88 +103,21 @@
 <!-- Navbar End -->
 
 
-
-<!-- Header Start -->
+    <!-- Header Start -->
 <div class="jumbotron jumbotron-fluid bg-jumbotron" style="margin-bottom: 90px;">
     <div class="container text-center py-5">
-        <h3 class="text-white display-3 mb-4">Reservar Cita</h3>
+        <h3 class="text-white display-3 mb-4">Horario de Atención</h3>
         <div class="d-inline-flex align-items-center text-white">
             <p class="m-0"><a class="text-white" href="">Inicio</a></p>
             <i class="far fa-circle px-3"></i>
-            <p class="m-0">Reservar Cita</p>
+            <p class="m-0">Horario de Atención</p>
         </div>
     </div>
 </div>
 <!-- Header End -->
 
 
-   <!-- Appointment Start -->
-<div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row mx-0 justify-content-center text-center">
-            <div class="col-lg-6">
-                <h6 class="d-inline-block bg-light text-primary text-uppercase py-1 px-2">Reservar Cita</h6>
-                <h1 class="mb-5">Haz una Cita</h1>
-            </div>
-        </div>
-        <div class="row justify-content-center bg-appointment mx-0">
-            <div class="col-lg-6 py-5">
-                <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
-                    <h1 class="text-white text-center mb-4">Reservar Cita</h1>
-                    <form>
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control bg-transparent p-4" placeholder="Tu Nombre" required="required" />
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <input type="email" class="form-control bg-transparent p-4" placeholder="Tu Correo Electrónico" required="required" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Fecha" data-target="#date" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <div class="time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Hora" data-target="#time" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <select class="custom-select bg-transparent px-4" style="height: 47px;">
-                                        <option selected>Selecciona un Servicio</option>
-                                        <option value="1">Manicura Clásica</option>
-                                        <option value="2">Pedicura Spa</option>
-                                        <option value="3">Uñas Acrílicas</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Reservar Cita</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Appointment End --> 
-
-
-    <!-- Open Hours Start -->
+   <!-- Horario de Atención Inicio -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row">
@@ -188,23 +129,23 @@
             <div class="col-lg-6 pt-5 pb-lg-5">
                 <div class="hours-text bg-light p-4 p-lg-5 my-lg-5">
                     <h6 class="d-inline-block text-white text-uppercase bg-primary py-1 px-2">Horario de Atención</h6>
-                    <h1 class="mb-4">Zona Beauty</h1>
-                    <p>En Zona Beauty, nos dedicamos a ofrecer el mejor cuidado y embellecimiento de tus uñas. Contamos con un ambiente relajante y un servicio personalizado para garantizar tu satisfacción.</p>
+                    <h1 class="mb-4">La mejor atención para el cuidado de tus uñas</h1>
+                    <p>En **Zona Beauty**, ofrecemos un servicio especializado en el cuidado de tus manos y pies, con un enfoque personalizado y de calidad. Nuestra dedicación es asegurar que cada cliente disfrute de un trato único.</p>
                     <ul class="list-inline">
-                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lunes – Viernes: 9:00 AM - 7:00 PM</li>
-                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Sábado: 9:00 AM - 6:00 PM</li>
-                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Domingo: Cerrado</li>
+                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Lunes – Viernes : 9:00 AM - 7:00 PM</li>
+                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Sábado : 9:00 AM - 6:00 PM</li>
+                        <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Domingo : Cerrado</li>
                     </ul>
-                    <a href="Vistas/Login.php">Reservar Ahora</a>
+                    <a href="Vistas/Login.php" class="btn btn-primary mt-2">Reservar ahora</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Open Hours End -->
+<!-- Horario de Atención Fin -->
 
 
-    <!-- Footer Start -->
+    <!-- Footer Inicio -->
 <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
     <div class="container pt-5">
         <div class="row">
@@ -212,12 +153,15 @@
                 <a href="index.html" class="navbar-brand">
                     <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
                 </a>
-                <p>En Zona Beauty, nos especializamos en el embellecimiento y cuidado de tus uñas. Nuestro servicio personalizado garantiza la mejor experiencia para nuestros clientes.</p>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>Colonia Santa Lucía, El Salvador</p>
+                <p>Nos especializamos en el cuidado de tus manos y pies. Ofrecemos un servicio personalizado para realzar la belleza de tus uñas con los mejores productos del mercado.</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Colonia Santa Lucia, El Salvador</p>
                 <p><i class="fa fa-phone-alt mr-2"></i>+503 1234 5678</p>
                 <p><i class="fa fa-envelope mr-2"></i>info@zonabeauty.com</p>
                 <div class="d-flex justify-content-start mt-4">
-                    <!-- Social Media Links here -->
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 pl-lg-5">
@@ -226,7 +170,7 @@
                         <h5 class="text-white text-uppercase mb-4">Enlaces Rápidos</h5>
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Nosotros</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre Nosotros</a>
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Servicios</a>
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Precios</a>
                             <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contacto</a>
@@ -237,15 +181,16 @@
                         <div class="d-flex flex-column justify-content-start">
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Manicura</a>
                             <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pedicura</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Decoración de Uñas</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Tratamiento de Uñas</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Uñas Acrílicas</a>
+                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Diseño de Uñas</a>
+                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Tratamiento de Uñas</a>
                         </div>
                     </div>
                     <div class="col-sm-12 mb-5">
                         <h5 class="text-white text-uppercase mb-4">Boletín Informativo</h5>
                         <div class="w-100">
                             <div class="input-group">
-                                <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Tu Dirección de Correo">
+                                <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Tu Dirección de Email">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary px-4">Suscribirse</button>
                                 </div>
@@ -269,7 +214,7 @@
         </div>
     </div>
 </div>
-<!-- Footer End -->
+<!-- Footer Fin -->
 
 
     <!-- Back to Top -->
@@ -279,20 +224,20 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../../lib/easing/easing.min.js"></script>
+    <script src="../../lib/waypoints/waypoints.min.js"></script>
+    <script src="../../lib/counterup/counterup.min.js"></script>
+    <script src="../../lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../../lib/tempusdominus/js/moment.min.js"></script>
+    <script src="../../lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="../../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="../../mail/jqBootstrapValidation.min.js"></script>
+    <script src="../../mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>
