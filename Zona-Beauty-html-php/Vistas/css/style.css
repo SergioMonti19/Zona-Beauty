@@ -84,6 +84,18 @@ p {
   margin-bottom: 1rem;
 }
 
+input[type="text"], select{
+  color: white;
+}
+
+select {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 10px;
+  appearance: none;
+}
+
 abbr[title],
 abbr[data-original-title] {
   text-decoration: underline;
@@ -241,6 +253,7 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  color: white;
 }
 
 button,

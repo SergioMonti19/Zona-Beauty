@@ -73,7 +73,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="usuario/appoiment.php" class="dropdown-item">Citas</a>
+                        <a href="usuario/cita.php" class="dropdown-item">Citas</a>
                         <a href="usuario/opening.php" class="dropdown-item">Horario</a>
                         <a href="usuario/team.php" class="dropdown-item">Nuestro Equipo</a>
                         <a href="usuario/testimonial.php" class="dropdown-item">Testimonios</a>
@@ -196,7 +196,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Manicura Clásica</h4>
                 <p class="text-white px-3 mb-3">Un tratamiento completo para embellecer tus manos y uñas.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>
@@ -206,7 +206,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Pedicura Spa</h4>
                 <p class="text-white px-3 mb-3">Relájate con nuestra pedicura spa, ideal para cuidar tus pies.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>
@@ -216,7 +216,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Uñas Acrílicas</h4>
                 <p class="text-white px-3 mb-3">Dale un toque especial a tus manos con nuestras uñas acrílicas.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>
@@ -226,7 +226,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Decoración de Uñas</h4>
                 <p class="text-white px-3 mb-3">Haz que tus uñas se vean increíbles con nuestra decoración personalizada.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>
@@ -236,7 +236,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Manicura Francesa</h4>
                 <p class="text-white px-3 mb-3">La clásica manicura francesa para un look elegante y natural.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>
@@ -246,7 +246,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <h4 class="text-white font-weight-medium px-3">Tratamiento de Uñas</h4>
                 <p class="text-white px-3 mb-3">Fortalece y cuida tus uñas con nuestros tratamientos especiales.</p>
                 <div class="w-100 bg-white text-center p-4">
-                    <a class="btn btn-primary" href="">Hacer Pedido</a>
+                    <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
             </div>
         </div>

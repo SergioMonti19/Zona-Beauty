@@ -1,9 +1,21 @@
 <?php
 
 session_start();
+require "../../Modelo/conexion.php";
 $usuario =  $_SESSION['id_usuario'];
+$nombre =  $_SESSION['nombreCompleto'];
 
 if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
+
+    $query = "SELECT id_servicio, nombre_servicio FROM servicios";
+    $stmt = $db->prepare($query);
+    $stmt->execute();
+    $servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $sql = "SELECT id_empleado, nombre_completo FROM empleados";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +71,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
 
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="#" class="navbar-brand ml-lg-3">
+        <a href="../index.php" class="navbar-brand ml-lg-3">
             <h1 class="m-0 text-primary"><span class="text-dark">Zona</span> Beauty</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -92,16 +104,17 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         <div class="col-lg-6 py-5">
             <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
                 <h1 class="text-white text-center mb-4">Reservar Cita</h1>
-                <form>
+                <form method="POST" action="../../Controlador/CitaController.php">
                     <div class="form-row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="text" class="form-control bg-transparent p-4" placeholder="Tu Nombre" required="required" />
+                                <input type="text" class="form-control bg-transparent font-c p-4" placeholder="<?php echo $nombre; ?>" value="<?php echo $nombre; ?>" required="required" />
+                                <input type="text" name="usuario" class="form-control bg-transparent font-c p-4" value="<?php echo $usuario; ?>" hidden="hidden" />
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <input type="email" class="form-control bg-transparent p-4" placeholder="Tu Correo Electrónico" required="required" />
+                                <input type="email" name="email" class="form-control bg-transparent p-4" placeholder="Tu Correo Electrónico" required="required" />
                             </div>
                         </div>
                     </div>
@@ -109,14 +122,14 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Fecha" data-target="#date" data-toggle="datetimepicker"/>
+                                    <input type="text" name="fecha" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Fecha" data-target="#date" data-toggle="datetimepicker"/>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Hora" data-target="#time" data-toggle="datetimepicker"/>
+                                    <input type="text" name="hora" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Hora" data-target="#time" data-toggle="datetimepicker"/>
                                 </div>
                             </div>
                         </div>
@@ -124,18 +137,35 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                     <div class="form-row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <select class="custom-select bg-transparent px-4" style="height: 47px;">
-                                    <option selected>Selecciona un Servicio</option>
-                                    <option value="1">Manicura Clásica</option>
-                                    <option value="2">Pedicura Spa</option>
-                                    <option value="3">Uñas Acrílicas</option>
+                                <select class="custom-select bg-transparent px-4" name="servicio" style="height: 47px;">
+                                    <?php foreach($servicios as $servicio): ?>
+                                        <option value="<?php echo $servicio['id_servicio']; ?>">
+                                            <?php echo $servicio['nombre_servicio']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>
+
                         <div class="col-sm-6">
+                            <div class="form-group">
+                                <select class="custom-select bg-transparent px-4" name="empleado" style="height: 47px;">
+                                    <?php foreach($empleados as $empleado): ?>
+                                        <option value="<?php echo $empleado['id_empleado']; ?>">
+                                            <?php echo $empleado['nombre_completo']; ?>
+                                        </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="justify-content-center align-items-center">
+                        <div class="col-12">
                             <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Reservar Cita</button>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>
