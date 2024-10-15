@@ -68,18 +68,18 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
                 <a href="usuario/about.php" class="nav-item nav-link">Nosotros</a>
-                <a href="service.php" class="nav-item nav-link">Servicios</a>
-                <a href="price.php" class="nav-item nav-link">Precios</a>
+                <a href="usuario/service.php" class="nav-item nav-link">Servicios</a>
+                <a href="usuario/price.php" class="nav-item nav-link">Precios</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="appointment.php" class="dropdown-item">Citas</a>
-                        <a href="opening.php" class="dropdown-item">Horario</a>
-                        <a href="team.php" class="dropdown-item">Nuestro Equipo</a>
-                        <a href="testimonial.php" class="dropdown-item">Testimonios</a>
+                        <a href="usuario/appoiment.php" class="dropdown-item">Citas</a>
+                        <a href="usuario/opening.php" class="dropdown-item">Horario</a>
+                        <a href="usuario/team.php" class="dropdown-item">Nuestro Equipo</a>
+                        <a href="usuario/testimonial.php" class="dropdown-item">Testimonios</a>
                     </div>
                 </div>
-                <a href="contact.php" class="nav-item nav-link">Contacto</a>
+                <a href="usuario/contact.php" class="nav-item nav-link">Contacto</a>
             </div>
             <a href="../Controlador/cerrarSesion.php" class="btn btn-primary d-none d-lg-block">Cerrar Sesión</a>
         </div>
@@ -108,7 +108,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                         ?>
                         </h3>
                         <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="usuario/cita.php">Reservar Cita</a>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                             ?>
                         </h3>
                         <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="usuario/cita.php">Reservar Cita</a>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                             ?>
                         </h3>
                         <p class="mx-md-5 px-5">¿Deseas agendar una cita? Vamos!</p>
-                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="">Reservar Cita</a>
+                        <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="usuario/cita.php">Reservar Cita</a>
                     </div>
                 </div>
             </div>
