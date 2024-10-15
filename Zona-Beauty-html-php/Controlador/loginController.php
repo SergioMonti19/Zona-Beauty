@@ -22,6 +22,7 @@ if(isset($_POST['usuario']) && isset($_POST['contrasena'])) {
 
         $_SESSION['id_usuario'] = $result['id_usuario'];
         $_SESSION['nombreCompleto'] = $result['nombre_completo'];
+        $_SESSION['rol'] = $result['rol'];
 
         echo $result['rol'];
         switch ($result['rol']) {
@@ -29,7 +30,7 @@ if(isset($_POST['usuario']) && isset($_POST['contrasena'])) {
                 header("Location: ../Vistas/index.php");
                 break;
             case "Administrador":
-                header("Location: ../Vistas/indexAdmin.php");
+                header("Location: ../Vistas/administrador/indexAdmin.php");
                 break;
             case "Empleado":
                 header("Location: ../Vistas/indexEmpleado.php");
@@ -38,11 +39,9 @@ if(isset($_POST['usuario']) && isset($_POST['contrasena'])) {
                 header("Location: ../Vistas/index.php");
             break;
         }
-        header("Location: ../Vistas/index.php");
         exit;
-
     }
-    else { header("Location: ../Vistas/login.php?opcion=error:''"); }
+    else { header("Location: ../Vistas/login.php?opcion=error"); }
 
 }
 
