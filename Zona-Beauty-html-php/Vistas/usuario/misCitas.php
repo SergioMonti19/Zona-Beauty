@@ -7,15 +7,25 @@ $nombre =  $_SESSION['nombreCompleto'];
 
 if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
 
-    $query = "SELECT id_servicio, nombre_servicio FROM servicios WHERE estado = 'Activo'";
-    $stmt = $db->prepare($query);
-    $stmt->execute();
-    $servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    $sql = "SELECT id_empleado, nombre_completo FROM empleados";
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$query = "SELECT 
+    distinct 
+    c.id_cita,
+    c.fecha, 
+    c.hora, 
+    c.estado, 
+    s.nombre_servicio, 
+    e.nombre_completo AS empleado
+FROM 
+    citas c
+JOIN 
+    servicios s ON c.id_servicio = s.id_servicio
+JOIN 
+    asignacionesservicios a ON s.id_servicio = a.id_servicio
+JOIN 
+    empleados e ON a.id_empleado = e.id_empleado";
+$stmt = $db->prepare($query);
+$stmt->execute();
+$citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -35,14 +45,15 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
     <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/misCitas.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="background-color: lightpink">
 <div class="container-fluid bg-light d-none d-lg-block">
     <div class="row py-2 px-lg-5">
         <div class="col-lg-6 text-left mb-2 mb-lg-0">
@@ -79,120 +90,84 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         </button>
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
-                <a href="about.php" class="nav-item nav-link">Nosotros</a>
-                <a href="service.php" class="nav-item nav-link">Servicios</a>
-                <a href="price.php" class="nav-item nav-link">Precios</a>
+                <a href="../usuario/about.php" class="nav-item nav-link">Nosotros</a>
+                <a href="../usuario/service.php" class="nav-item nav-link">Servicios</a>
+                <a href="../usuario/price.php" class="nav-item nav-link">Precios</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="appoiment.php" class="dropdown-item">Citas</a>
-                        <a href="opening.php" class="dropdown-item">Horario</a>
-                        <a href="team.php" class="dropdown-item">Nuestro Equipo</a>
-                        <a href="testimonial.php" class="dropdown-item">Testimonios</a>
+                        <a href="../usuario/cita.php" class="dropdown-item">Citas</a>
+                        <a href="../usuario/opening.php" class="dropdown-item">Horario</a>
+                        <a href="../usuario/team.php" class="dropdown-item">Nuestro Equipo</a>
                     </div>
                 </div>
-                <a href="contact.php" class="nav-item nav-link">Contacto</a>
+                <a href="../usuario/contact.php" class="nav-item nav-link">Contacto</a>
             </div>
             <a href="../../Controlador/cerrarSesion.php" class="btn btn-primary d-none d-lg-block">Cerrar Sesión</a>
         </div>
     </nav>
 </div>
 
-<?php
-if (isset($_GET['opcion']) && $_GET['opcion'] === 'error' && isset($_GET['mensaje'])) {
-    $mensajeError = urldecode($_GET['mensaje']);
-    echo '<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Error:</strong> ' . htmlspecialchars($mensajeError) . '
+
+<div class="container-fluid p-0 mb-5 mt-5 pb-5">
+    <h3 class="text-center">Listado de Citas</h3>
+
+    <div class="mt-3 mb-3">
+        <?php
+        if(isset($_GET['opcion'])) {
+            echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Exito!:</strong>Cita Confirmada!. Te esperamos en Zona Beauty. 😘
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
-}
+                </div>';
+        };
 
-?>
-
-
-<!-- Service Start -->
-<div class="container-fluid px-0 py-5 my-5">
-    <div class="row justify-content-center bg-appointment mx-0">
-        <div class="col-lg-6 py-5">
-            <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
-                <h1 class="text-white text-center mb-4">Reservar Cita</h1>
-                <form method="POST" action="../../Controlador/CitaController.php">
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control bg-transparent p-4" placeholder="<?php echo $nombre; ?>" value="<?php echo $nombre; ?>" required="required" />
-                                <input type="text" name="usuario" class="form-control bg-transparent p-4" value="<?php echo $usuario; ?>" hidden="hidden" />
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" name="email" class="form-control bg-transparent p-4" placeholder="Tu Correo Electrónico" required="required" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" name="fecha" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Fecha" data-target="#date" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" name="hora" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Hora" data-target="#time" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="custom-select bg-transparent px-4" name="servicio" style="height: 47px;">
-                                    <?php foreach($servicios as $servicio): ?>
-                                        <option value="<?php echo $servicio['id_servicio']; ?>">
-                                            <?php echo $servicio['nombre_servicio']; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="custom-select bg-transparent px-4" name="empleado" style="height: 47px;">
-                                    <?php foreach($empleados as $empleado): ?>
-                                        <option value="<?php echo $empleado['id_empleado']; ?>">
-                                            <?php echo $empleado['nombre_completo']; ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="col-12 mb-4">
-                            <label class="form-label">Comentarios</label>
-                            <textarea class="custom-select bg-transparent px-4" name="comentario"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="justify-content-center align-items-center">
-                        <div class="col-12">
-                            <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Reservar Cita</button>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
-        </div>
+        if(isset($_GET['error'])) {
+            echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Ohoh!:</strong>Ocurrió un error al guardar.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+        };
+        ?>
     </div>
-</div>
-<!-- Service End -->
 
-<!-- Footer Start -->
+    <!-- Tabla para mostrar los resultados -->
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Servicio</th>
+            <th>Empleado</th>
+            <th>Acción</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($citas as $cita): ?>
+            <tr>
+                <td><?php echo htmlspecialchars($cita['fecha']); ?></td>
+                <td><?php echo htmlspecialchars($cita['hora']); ?></td>
+                <td><?php echo htmlspecialchars($cita['estado']); ?></td>
+                <td><?php echo htmlspecialchars($cita['nombre_servicio']); ?></td>
+                <td><?php echo htmlspecialchars($cita['empleado']); ?></td>
+                <td>
+                    <!-- Botón para confirmar la cita -->
+                    <form action="../../Controlador/confirmarCita.php" method="POST">
+                        <input type="hidden" name="idCita" value="<?php echo $cita['id_cita']; ?>">
+                        <input type="hidden" name="estado" value="Confirmada">
+                        <input type="submit" value="Confirmar Cita" class="btn btn-success">
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+            <!-- Footer Start -->
 <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
     <div class="container pt-5">
         <div class="row">

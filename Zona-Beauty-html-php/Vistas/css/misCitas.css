@@ -1,0 +1,47 @@
+/* Mejora el diseño de la tabla */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.table th, .table td {
+    padding: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.table thead th {
+    background-color: #ff85a2;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background-color: #ffe0e9;
+}
+
+.table tbody tr:nth-of-type(even) {
+    background-color: #ffc4d1;
+}
+
+/* Estilo para el botón de acción */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}

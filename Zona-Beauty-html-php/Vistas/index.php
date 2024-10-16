@@ -76,15 +76,25 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                         <a href="usuario/cita.php" class="dropdown-item">Citas</a>
                         <a href="usuario/opening.php" class="dropdown-item">Horario</a>
                         <a href="usuario/team.php" class="dropdown-item">Nuestro Equipo</a>
-                        <a href="usuario/testimonial.php" class="dropdown-item">Testimonios</a>
                     </div>
                 </div>
                 <a href="usuario/contact.php" class="nav-item nav-link">Contacto</a>
+                <a href="usuario/misCitas.php" class="nav-item nav-link">Mis Citas</a>
             </div>
             <a href="../Controlador/cerrarSesion.php" class="btn btn-primary d-none d-lg-block">Cerrar Sesión</a>
         </div>
     </nav>
 </div>
+
+<?php
+if(isset($_GET['opcion'])) {
+    echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Exito!:</strong>Has agendado tu cita!. Te esperamos en Zona Beauty. 😘
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+};
+?>
+
 
 
 <div class="container-fluid p-0 mb-5 pb-5">
@@ -248,58 +258,6 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
                 <div class="w-100 bg-white text-center p-4">
                     <a class="btn btn-primary" href="usuario/cita.php">Hacer Pedido</a>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content-center bg-appointment mx-0">
-        <div class="col-lg-6 py-5">
-            <div class="p-5 my-5" style="background: rgba(33, 30, 28, 0.7);">
-                <h1 class="text-white text-center mb-4">Reservar Cita</h1>
-                <form>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control bg-transparent p-4" placeholder="Tu Nombre" required="required" />
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control bg-transparent p-4" placeholder="Tu Correo Electrónico" required="required" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Fecha" data-target="#date" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text" class="form-control bg-transparent p-4 datetimepicker-input" placeholder="Selecciona la Hora" data-target="#time" data-toggle="datetimepicker"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <select class="custom-select bg-transparent px-4" style="height: 47px;">
-                                    <option selected>Selecciona un Servicio</option>
-                                    <option value="1">Manicura Clásica</option>
-                                    <option value="2">Pedicura Spa</option>
-                                    <option value="3">Uñas Acrílicas</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <button class="btn btn-primary btn-block" type="submit" style="height: 47px;">Reservar Cita</button>
-                        </div>
-                    </div>
-                </form>
             </div>
         </div>
     </div>
