@@ -2,11 +2,11 @@
 
 require "../../Modelo/conexion.php";
 session_start();
-$usuario =  $_SESSION['id_empleado'];
+$usuario =  $_SESSION['idEmpleado'];
 $nombre =  $_SESSION['nombreCompleto'];
 
 if (!isset($usuario)) {
-    header("location:../loginEmpleado.php");
+    header("location:../loginEmpleados.php");
     exit;
 }
 
@@ -49,7 +49,7 @@ if (!isset($usuario)) {
                 <h2 class="m-0">Bienvenido,</h2>
                 <h2 class="m-0 text-primary ml-2"><?php echo $nombre; ?></h2>
             </div>
-            <a href="../../Controlador/cerrarSesion.php" class="btn btn-outline-danger d-none d-lg-block ml-3">
+            <a href="../../Controlador/cerrarEmpleado.php" class="btn btn-outline-danger d-none d-lg-block ml-3">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
         </div>

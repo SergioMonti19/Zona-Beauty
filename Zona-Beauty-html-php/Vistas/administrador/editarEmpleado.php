@@ -60,7 +60,7 @@ $empleado = $stmt->fetch(PDO::FETCH_ASSOC);
                     <h2 class="m-0">Bienvenido,</h2>
                     <h2 class="m-0 text-primary ml-2"><?php echo $nombre; ?></h2>
                 </div>
-                <a href="../../Controlador/cerrarSesion.php" class="btn btn-outline-danger d-none d-lg-block ml-3">
+                <a href="../../Controlador/cerrarEmpleado.php" class="btn btn-outline-danger d-none d-lg-block ml-3">
                     <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
                 </a>
             </div>

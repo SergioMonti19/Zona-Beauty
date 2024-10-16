@@ -10,6 +10,36 @@ if (!isset($usuario)) {
     exit;
 }
 
+
+$query = "
+    SELECT 
+        u.nombre_completo AS usuario,
+        s.nombre_servicio,
+        c.fecha,
+        c.hora,
+        c.estado,
+        c.id_cita
+    FROM 
+        asignacionesservicios asg
+    JOIN 
+        empleados e ON asg.id_empleado = e.id_empleado
+    JOIN 
+        citas c ON asg.id_cita = c.id_cita
+    JOIN 
+        servicios s ON c.id_servicio = s.id_servicio
+    JOIN 
+        usuarios u ON c.id_usuario = u.id_usuario
+    WHERE 
+        e.id_empleado = :id_empleado
+    ORDER BY 
+        c.fecha DESC, c.hora DESC;
+";
+
+$stmt = $db->prepare($query);
+$stmt->bindParam(':id_empleado', $usuario);
+$stmt->execute();
+$citasAsignadas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +79,7 @@ if (!isset($usuario)) {
                 <h2 class="m-0">Bienvenido,</h2>
                 <h2 class="m-0 text-primary ml-2"><?php echo $nombre; ?></h2>
             </div>
-            <a href="../../Controlador/cerrarSesion.php" class="btn btn-outline-danger d-none d-lg-block ml-3">
+            <a href="../../Controlador/cerrarEmpleado.php" cl   ass="btn btn-outline-danger d-none d-lg-block ml-3">
                 <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
             </a>
         </div>
@@ -59,100 +89,66 @@ if (!isset($usuario)) {
     <div class="col-xs-12">
         <br>
         <h1>Citas Asignadas</h1>
-        <br>
-
-        <div>
-            <a class="btn btn-success" href="registroAdmin.php">Nuevo usuario
-                <i class="fa fa-plus"></i>
-            </a>
-        </div>
         <br><br>
 
-        <?php
+        <div class="mt-3 mb-3">
+            <?php
+            if(isset($_GET['exito'])) {
+                echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Exito!:</strong>Estado actualizado
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            };
 
-        if(isset($_GET['opcion'])) {
-            echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>¡Exito!:</strong> Se ha creado el registro
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>';
-        };
+            if(isset($_GET['error'])) {
+                echo  '<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Ohoh!:</strong>Ocurrió un error al guardar.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            };
+            ?>
+        </div>
 
-        if(isset($_GET['exito'])) {
-            echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>¡Exito!:</strong> El estado del empleado cambio a inactivo
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>';
-        };
-
-        if(isset($_GET['error'])) {
-            $mensajeError = urldecode($_GET['error']);
-            echo  '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <strong>¡Oh oh!:</strong> Ocurrió un error al cambiar el estado  '. htmlspecialchars($mensajeError) . '
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>';
-        };
-
-        ?>
-
-        <table class="table table-striped table-dark" id="table_id">
+        <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Id Empleado</th>
-                <th>Nombre Completo</th>
-                <th>Correo</th>
-                <th>Telefono</th>
-                <th>Puesto</th>
+                <th>Cliente</th>
+                <th>Servicio</th>
+                <th>Fecha</th>
+                <th>Hora</th>
                 <th>Estado</th>
+                <th>Accion</th>
             </tr>
             </thead>
             <tbody>
-            <?php
-            $SQL = "SELECT id_empleado, nombre_completo, correo, telefono, puesto, estado FROM empleados";
-            $stmt = $db->prepare($SQL);
-            $stmt->execute();
-            $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            <?php foreach ($citasAsignadas as $cita): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($cita['usuario']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['nombre_servicio']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['fecha']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['hora']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['estado']); ?></td>
+                    <td>
+                        <form action="../../Controlador/actualizarEstadoCita.php" method="POST" style="display:inline-block;">
+                            <input type="hidden" name="idCita" value="<?php echo $cita['id_cita']; ?>">
+                            <input type="hidden" name="estado" value="Cancelada">
+                            <input type="submit"
+                                   value="Cancelar Cita"
+                                   class="btn btn-danger"
+                                <?php echo ($cita['estado'] !== 'Confirmada') ? 'disabled' : ''; ?>>
+                        </form>
 
-            if (count($empleados) > 0) {
-                foreach ($empleados as $fila) {
-                    ?>
-                    <tr>
-                        <td><?php echo $fila['id_empleado']; ?></td>
-                        <td><?php echo $fila['nombre_completo']; ?></td>
-                        <td><?php echo $fila['correo']; ?></td>
-                        <td><?php echo $fila['telefono']; ?></td>
-                        <td><?php echo $fila['puesto']; ?></td>
-                        <td><?php echo $fila['estado']; ?></td>
-                        <td>
-                            <?php if ($fila['estado'] === 'Inactivo'): ?>
-                                <a class="btn btn-warning disabled" style="pointer-events: none; opacity: 0.5;">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-
-                                <a class="btn btn-danger disabled" style="pointer-events: none; opacity: 0.5;">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                            <?php else: ?>
-                                <a class="btn btn-warning" href="editarEmpleado.php?id=<?php echo $fila['id_empleado']; ?>">
-                                    <i class="fa fa-edit"></i>
-                                </a>
-
-                                <a class="btn btn-danger" href="../../Controlador/desacEmpleadoController.php?id=<?php echo $fila['id_empleado']; ?>">
-                                    <i class="fa fa-trash"></i>
-                                </a>
-                            <?php endif; ?>
-                        </td>
-
-                    </tr>
-                    <?php
-                }
-            } else {
-                ?>
-                <tr class="text-center">
-                    <td colspan="7">No existen registros</td>
+                        <form action="../../Controlador/actualizarEstadoCita.php" method="POST" style="display:inline-block;">
+                            <input type="hidden" name="idCita" value="<?php echo $cita['id_cita']; ?>">
+                            <input type="hidden" name="estado" value="Completada">
+                            <input type="submit"
+                                   value="Cita Completada"
+                                   class="btn btn-success"
+                                <?php echo ($cita['estado'] !== 'Confirmada') ? 'disabled' : ''; ?>>
+                        </form>
+                    </td>
                 </tr>
-                <?php
-            }
-            ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
