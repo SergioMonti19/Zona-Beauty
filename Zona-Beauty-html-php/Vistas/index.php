@@ -161,33 +161,36 @@ if(isset($_GET['opcion'])) {
 </div>
 
 <div class="container-fluid py-5">
-    <div class="container py-5">
-        <div class="row align-items-center">
-            <div class="col-lg-6 pb-5 pb-lg-0">
-                <img class="img-fluid w-100" src="../img/about.jpg" alt="Sobre nosotros">
-            </div>
-            <div class="col-lg-6">
-                <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">Nosotros</h6>
-                <h1 class="mb-4">Tu mejor centro especializado en uñas</h1>
-                <p class="pl-4 border-left border-primary">Nos dedicamos a embellecer tus manos y pies con tratamientos profesionales de manicura y pedicura. Nuestro objetivo es ofrecerte una experiencia relajante mientras cuidamos cada detalle para que tus uñas luzcan impecables.</p>
-                <div class="row pt-3">
-                    <div class="col-6">
-                        <div class="bg-light text-center p-4">
-                            <h3 class="display-4 text-primary" data-toggle="counter-up">99</h3>
-                            <h6 class="text-uppercase">Clientes Felices</h6>
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 pb-5 pb-lg-0">
+                    <img class="img-fluid w-100" src="img/about.jpg" alt="Sobre nosotros">
+                </div>
+                <div class="col-lg-6">
+                    <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">Nosotros</h6>
+                    <h1 class="mb-4">Tu mejor centro especializado en uñas</h1>
+                    <p class="pl-4 border-left border-primary">Nos dedicamos a embellecer tus manos y pies con
+                        tratamientos profesionales de manicura y pedicura. Nuestro objetivo es ofrecerte una experiencia
+                        relajante mientras cuidamos cada detalle para que tus uñas luzcan impecables.</p>
+                    <div class="row pt-3">
+                        <div class="col-6">
+                            <div class="bg-light text-center p-4">
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">1</h3>
+                                <h6 class="text-uppercase">Especialistas</h6>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="bg-light text-center p-4">
-                            <h3 class="display-4 text-primary" data-toggle="counter-up">100%</h3>
-                            <h6 class="text-uppercase">Calidad Garantizada</h6>
+                        <div class="col-6">
+                            <div class="bg-light text-center p-4">
+                                <h3 class="display-4 text-primary" data-toggle="counter-up">150</h3>
+                                <h6 class="text-uppercase">Clientes Felices</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- About End -->
 <!-- About End -->
 
 
@@ -405,7 +408,7 @@ if(isset($_GET['opcion'])) {
                             <img class="img-fluid rounded-circle" src="../img/testimonial-1.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
-                                <span>Profesión</span>
+                                <span></span>
                             </div>
                         </div>
                         <p class="m-0">"La atención y el servicio son excepcionales. Me encanta cómo cuidan mis uñas, siempre salgo feliz de cada cita."</p>
@@ -416,7 +419,7 @@ if(isset($_GET['opcion'])) {
                             <img class="img-fluid rounded-circle" src="../img/testimonial-2.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
-                                <span>Profesión</span>
+                                <span></span>
                             </div>
                         </div>
                         <p class="m-0">"Siempre obtengo el mejor servicio aquí. Definitivamente volveré para mis próximas citas."</p>
@@ -427,7 +430,7 @@ if(isset($_GET['opcion'])) {
                             <img class="img-fluid rounded-circle" src="../img/testimonial-3.jpg" style="width: 60px; height: 60px;" alt="">
                             <div class="ml-3">
                                 <h6 class="text-uppercase">Cliente Satisfecho</h6>
-                                <span>Profesión</span>
+                                <span></span>
                             </div>
                         </div>
                         <p class="m-0">"El lugar es muy acogedor y la dueña es muy profesional. Mis uñas lucen increíbles."</p>
