@@ -32,14 +32,14 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
 
 <body>
 <div class="container-fluid bg-light d-none d-lg-block">
-    <div class="row py-2 px-lg-5">
-        <div class="col-lg-6 text-left mb-2 mb-lg-0">
-            <div class="d-inline-flex align-items-center">
-                <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
-                <small class="px-3">|</small>
-                <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
+<div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <small><i class="fa fa-phone-alt mr-2"></i>+503 7666 9511</small>
+                    <small class="px-3">|</small>
+                    <small><i class="fa fa-envelope mr-2"></i>zonabeauty@gmail.com</small>
+                </div>
             </div>
-        </div>
         <div class="col-lg-6 text-right">
             <div class="d-inline-flex align-items-center">
                 <a class="text-primary px-2" href="https://www.facebook.com/profile.php?id=100091195024985&locale=es_LA">
@@ -308,7 +308,7 @@ if(isset($_GET['opcion'])) {
                         <div class="bg-white">
                             <div class="d-flex align-items-center justify-content-between border-bottom border-primary p-4">
                                 <h1 class="display-4 mb-0">
-                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>30<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Manicura</small>
+                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>10<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Manicura</small>
                                 </h1>
                                 <h5 class="text-primary text-uppercase m-0">Manicura Básica</h5>
                             </div>
@@ -323,7 +323,7 @@ if(isset($_GET['opcion'])) {
                         <div class="bg-white">
                             <div class="d-flex align-items-center justify-content-between border-bottom border-primary p-4">
                                 <h1 class="display-4 mb-0">
-                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>40<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Pedicura</small>
+                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>15<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Pedicura</small>
                                 </h1>
                                 <h5 class="text-primary text-uppercase m-0">Pedicura Clásica</h5>
                             </div>
@@ -338,7 +338,7 @@ if(isset($_GET['opcion'])) {
                         <div class="bg-white">
                             <div class="d-flex align-items-center justify-content-between border-bottom border-primary p-4">
                                 <h1 class="display-4 mb-0">
-                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>70<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Arte en Uñas</small>
+                                    <small class="align-top text-muted font-weight-medium" style="font-size: 22px; line-height: 45px;">$</small>25<small class="align-bottom text-muted font-weight-medium" style="font-size: 16px; line-height: 40px;">/Arte en Uñas</small>
                                 </h1>
                                 <h5 class="text-primary text-uppercase m-0">Diseño de Uñas</h5>
                             </div>
@@ -358,8 +358,8 @@ if(isset($_GET['opcion'])) {
 </div>
 <!-- Pricing End -->
 
-<!-- Team Start -->
-<div class="container-fluid py-5">
+  <!-- Team Start -->
+  <div class="container-fluid py-5">
     <div class="container pt-5">
         <div class="row justify-content-center text-center">
             <div class="col-lg-6">
@@ -370,17 +370,15 @@ if(isset($_GET['opcion'])) {
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="team position-relative overflow-hidden mb-5">
-                    <img class="img-fluid" src="../img/team-1.jpg" alt="" width="600" height="200">
+                    <img class="img-fluid" src="img/team-1.jpg" alt="" width="600" height="200">
                     <div class="position-relative text-center">
                         <div class="team-text bg-primary text-white">
                             <h5 class="text-white text-uppercase">Bertha Monti</h5>
                             <p class="m-0">Dueña y Especialista en Uñas</p>
                         </div>
                         <div class="team-social bg-dark text-center">
-                            <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary btn-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary btn-square" href="#"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-primary btn-square mr-2" href="#">https://www.facebook.com/profile.php?id=100091195024985&locale=es_LA<i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-primary btn-square" href="#">https://www.instagram.com/zonabeautybybm/<i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -453,9 +451,9 @@ if(isset($_GET['opcion'])) {
                     <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
                 </a>
                 <p>Nos especializamos en el cuidado y embellecimiento de uñas de manos y pies. Ofrecemos servicios de alta calidad para que siempre luzcas y te sientas bien.</p>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Calle, Ciudad, País</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                <p><i class="fa fa-envelope mr-2"></i>info@zonabeauty.com</p>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>Colonia Santa Lucia, Ilopango</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+503 7666 9511</p>
+                <p><i class="fa fa-envelope mr-2"></i>zonabeauty@gmail.com</p>
                 <div class="d-flex justify-content-start mt-4">
                     <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
