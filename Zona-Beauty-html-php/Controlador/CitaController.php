@@ -27,10 +27,17 @@ try {
     $citaInsertada = $stmt->execute();
 
 
+    // Obtener el id_cita más reciente insertado para el usuario actual
+    $queryCita = $db->prepare("SELECT id_cita FROM citas WHERE id_usuario = :id_usuario ORDER BY id_cita DESC LIMIT 1");
+    $queryCita->bindValue(':id_usuario', $usuario);
+    $queryCita->execute();
+    $idCitaReciente = $queryCita->fetch(PDO::FETCH_ASSOC)['id_cita'];
+
 // insert para la tabla de asignacion de servicio a empleados
-    $prepquey = $db->prepare("INSERT INTO asignacionesservicios (id_empleado, id_servicio) VALUES (:id_empleado, :id_servicio)");
+    $prepquey = $db->prepare("INSERT INTO asignacionesservicios (id_empleado, id_servicio, id_cita) VALUES (:id_empleado, :id_servicio, :id_cita)");
     $prepquey->bindValue(':id_empleado', $empleado);
     $prepquey->bindValue(':id_servicio', $servicio);
+    $prepquey->bindValue(':id_cita', $idCitaReciente);
     $asignacionInsertada = $prepquey->execute();
 
 

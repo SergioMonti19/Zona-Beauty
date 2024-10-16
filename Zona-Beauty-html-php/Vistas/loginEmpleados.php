@@ -27,14 +27,14 @@
             <i class='bx bxs-user'></i>
 
             <span class="user">
-                        <input type="text" name="usuario" id="usuario" placeholder="Usuario" autocomplete="off">
-                        <i class='bx bxs-user'></i>
-                    </span>
+                <input type="text" name="user" id="user" placeholder="usuario" autocomplete="off">
+                <i class='bx bxs-user'></i>
+            </span>
 
             <span class="password">
-                        <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña" autocomplete="off">
-                        <i class='bx bxs-lock' id="view"></i>
-                    </span>
+                <input type="password" name="pass" id="contrasena" placeholder="Contraseña" autocomplete="off">
+                <i class='bx bxs-lock' id="view"></i>
+            </span>
 
             <input type="submit" value="Iniciar de sesión"> <br> <br>
 

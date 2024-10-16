@@ -2,28 +2,38 @@
 
 session_start();
 require "../../Modelo/conexion.php";
-$usuario =  $_SESSION['id_usuario'];
-$nombre =  $_SESSION['nombreCompleto'];
+$usuario = $_SESSION['id_usuario'];
+$nombre = $_SESSION['nombreCompleto'];
 
-if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
+if (!isset($usuario)) {
+    header("location:../Vistas/Login.php");
+    exit;
+}
+$citas = [];
+$query = "
+        SELECT DISTINCT 
+            c.id_cita,
+            c.fecha, 
+            c.hora, 
+            c.estado, 
+            s.nombre_servicio, 
+            e.nombre_completo AS empleado
+        FROM 
+            citas c
+        JOIN 
+            servicios s ON c.id_servicio = s.id_servicio
+        JOIN 
+            asignacionesservicios a ON c.id_cita = a.id_cita
+        JOIN 
+            empleados e ON a.id_empleado = e.id_empleado
+        WHERE 
+            c.id_usuario = :id_usuario
+        ORDER BY 
+            c.fecha DESC, c.hora DESC
+    ";
 
-$query = "SELECT 
-    distinct 
-    c.id_cita,
-    c.fecha, 
-    c.hora, 
-    c.estado, 
-    s.nombre_servicio, 
-    e.nombre_completo AS empleado
-FROM 
-    citas c
-JOIN 
-    servicios s ON c.id_servicio = s.id_servicio
-JOIN 
-    asignacionesservicios a ON s.id_servicio = a.id_servicio
-JOIN 
-    empleados e ON a.id_empleado = e.id_empleado";
 $stmt = $db->prepare($query);
+$stmt->bindParam(':id_usuario', $usuario);
 $stmt->execute();
 $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -132,46 +142,49 @@ $citas = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <!-- Tabla para mostrar los resultados -->
-    <table class="table table-bordered table-striped">
-        <thead>
-        <tr>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estado</th>
-            <th>Servicio</th>
-            <th>Empleado</th>
-            <th>Acción</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($citas as $cita): ?>
+    <?php if (!empty($citas)): ?>
+        <table class="table table-bordered table-striped">
+            <thead>
             <tr>
-                <td><?php echo htmlspecialchars($cita['fecha']); ?></td>
-                <td><?php echo htmlspecialchars($cita['hora']); ?></td>
-                <td><?php echo htmlspecialchars($cita['estado']); ?></td>
-                <td><?php echo htmlspecialchars($cita['nombre_servicio']); ?></td>
-                <td><?php echo htmlspecialchars($cita['empleado']); ?></td>
-                <td>
-                    <!-- Botón para confirmar la cita -->
-                    <form action="../../Controlador/confirmarCita.php" method="POST">
-                        <input type="hidden" name="idCita" value="<?php echo $cita['id_cita']; ?>">
-                        <input type="hidden" name="estado" value="Confirmada">
-                        <input type="submit"
-                               value="Confirmar Cita"
-                               class="btn btn-success"
-                            <?php echo ($cita['estado'] !== 'Pendiente') ? 'disabled' : ''; ?>>
-                    </form>
-                </td>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Estado</th>
+                <th>Servicio</th>
+                <th>Empleado</th>
+                <th>Acción</th>
             </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($citas as $cita): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($cita['fecha']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['hora']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['estado']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['nombre_servicio']); ?></td>
+                    <td><?php echo htmlspecialchars($cita['empleado']); ?></td>
+                    <td>
+                        <form action="../../Controlador/confirmarCita.php" method="POST">
+                            <input type="hidden" name="idCita" value="<?php echo $cita['id_cita']; ?>">
+                            <input type="hidden" name="estado" value="Confirmada">
+                            <input type="submit"
+                                   value="<?php echo ($cita['estado'] === 'Pendiente') ? 'Confirmar Cita' : 'Cita Confirmada'; ?>"
+                                   class="btn btn-success"
+                                <?php echo ($cita['estado'] !== 'Pendiente') ? 'disabled' : ''; ?>>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No tienes citas registradas.</p>
+    <?php endif; ?>
 </div>
 
 
 
 
-            <!-- Footer Start -->
+<!-- Footer Start -->
 <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
     <div class="container pt-5">
         <div class="row">
