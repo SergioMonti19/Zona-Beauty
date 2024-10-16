@@ -12,7 +12,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
     $stmt->execute();
     $servicios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    $sql = "SELECT id_empleado, nombre_completo FROM empleados";
+    $sql = "SELECT id_empleado, nombre_completo FROM empleados WHERE estado = 'Activo'";
     $stmt = $db->prepare($sql);
     $stmt->execute();
     $empleados = $stmt->fetchAll(PDO::FETCH_ASSOC);

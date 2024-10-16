@@ -2,11 +2,11 @@
 
 require "../../Modelo/conexion.php";
 session_start();
-$usuario =  $_SESSION['id_empleado'];
+$usuario =  $_SESSION['idEmpleado'];
 $nombre =  $_SESSION['nombreCompleto'];
 
 if (!isset($usuario)) {
-    header("location:../loginEmpleado.php");
+    header("location:../loginEmpleados.php");
     exit;
 }
 
@@ -58,7 +58,7 @@ if (!isset($usuario)) {
 <div class="container is-fluid">
     <div class="col-xs-12">
         <br>
-        <h1>Lista de empleados</h1>
+        <h1>Citas Asignadas</h1>
         <br>
 
         <div>
@@ -70,12 +70,12 @@ if (!isset($usuario)) {
 
         <?php
 
-            if(isset($_GET['opcion'])) {
-                echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        if(isset($_GET['opcion'])) {
+            echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>¡Exito!:</strong> Se ha creado el registro
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>';
-            };
+        };
 
         if(isset($_GET['exito'])) {
             echo  '<div class="alert alert-success alert-dismissible fade show" role="alert">

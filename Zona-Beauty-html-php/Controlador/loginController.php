@@ -24,21 +24,7 @@ if(isset($_POST['usuario']) && isset($_POST['contrasena'])) {
         $_SESSION['nombreCompleto'] = $result['nombre_completo'];
         $_SESSION['rol'] = $result['rol'];
 
-        echo $result['rol'];
-        switch ($result['rol']) {
-            case "Cliente":
-                header("Location: ../Vistas/index.php");
-                break;
-            case "Administrador":
-                header("Location: ../Vistas/administrador/indexAdmin.php");
-                break;
-            case "Empleado":
-                header("Location: ../Vistas/indexEmpleado.php");
-                break;
-            default:
-                header("Location: ../Vistas/index.php");
-            break;
-        }
+        header("Location: ../Vistas/index.php");
         exit;
     }
     else { header("Location: ../Vistas/login.php?opcion=error"); }

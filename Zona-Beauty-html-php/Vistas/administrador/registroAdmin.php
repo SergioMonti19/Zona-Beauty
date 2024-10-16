@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+$usuario =  $_SESSION['idEmpleado'];
+$nombre =  $_SESSION['nombreCompleto'];
+
+if (!isset($usuario)) {
+    header("location:../loginEmpleado.php");
+    exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -93,7 +106,7 @@
     </form>
 </main>
 
-<script src="./js/mostrarContraseña.js"></script>
+<script src="../js/mostrarContraseña.js"></script>
 
 </body>
 </html>

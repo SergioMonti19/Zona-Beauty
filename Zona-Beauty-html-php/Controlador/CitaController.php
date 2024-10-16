@@ -37,12 +37,12 @@ try {
 // Comprobar si ambas inserciones fueron exitosas
     if ($citaInsertada && $asignacionInsertada) {
 
-        header("location:../Vistas/index.php?opcion=exito");
+        header("location:../Vistas/index.php?exito=exito");
         exit();
 
     } else {
 
-        header("location:../Vistas/usuario/cita.php?opcion=error");
+        header("location:../Vistas/usuario/cita.php?error=error");
         exit();
     }
 
