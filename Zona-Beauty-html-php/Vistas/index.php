@@ -442,54 +442,61 @@ if(isset($_GET['opcion'])) {
 </div>
 <!-- Testimonial End -->
 
-<!-- Footer Start -->
-<div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
-    <div class="container pt-5">
-        <div class="row">
-            <div class="col-lg-6 pr-lg-5 mb-5">
-                <a href="index.php" class="navbar-brand">
-                    <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
-                </a>
-                <p>Nos especializamos en el cuidado y embellecimiento de uñas de manos y pies. Ofrecemos servicios de alta calidad para que siempre luzcas y te sientas bien.</p>
-                <p><i class="fa fa-map-marker-alt mr-2"></i>Colonia Santa Lucia, Ilopango</p>
-                <p><i class="fa fa-phone-alt mr-2"></i>+503 7666 9511</p>
-                <p><i class="fa fa-envelope mr-2"></i>zonabeauty@gmail.com</p>
-                <div class="d-flex justify-content-start mt-4">
-                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+ <!-- Footer Start -->
+ <div class="footer container-fluid position-relative bg-dark py-5" style="margin-top: 90px;">
+        <div class="container pt-5">
+            <div class="row">
+                <div class="col-lg-6 pr-lg-5 mb-5">
+                    <a href="index.php" class="navbar-brand">
+                        <h1 class="mb-3 text-white"><span class="text-primary">Zona</span> Beauty</h1>
+                    </a>
+                    <p>Nos especializamos en el cuidado y embellecimiento de uñas de manos y pies. Ofrecemos servicios
+                        de alta calidad para que siempre luzcas y te sientas bien.</p>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Colonia Santa Lucia, Ilopango</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+503 7666 9511</p>
+                    <p><i class="fa fa-envelope mr-2"></i>zonabeauty@gmail.com</p>
+                    <div class="d-flex justify-content-start mt-4">
+                        <a class="btn btn-lg btn-primary btn-lg-square mr-2" href="https://www.facebook.com/profile.php?id=100091195024985&locale=es_LA"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square" href="https://www.instagram.com/zonabeautybybm/"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 pl-lg-5">
-                <div class="row">
-                    <div class="col-sm-6 mb-5">
-                        <h5 class="text-white text-uppercase mb-4">Enlaces Rápidos</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Sobre Nosotros</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Nuestros Servicios</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Precios</a>
-                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Contáctanos</a>
+                <div class="col-lg-6 pl-lg-5">
+                    <div class="row">
+                        <div class="col-sm-6 mb-5">
+                            <h5 class="text-white text-uppercase mb-4">Enlaces Rápidos</h5>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white-50 mb-2" href="index.html"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                                <a class="text-white-50 mb-2" href="about.html"><i class="fa fa-angle-right mr-2"></i>Sobre
+                                    Nosotros</a>
+                                <a class="text-white-50 mb-2" href="service.html"><i class="fa fa-angle-right mr-2"></i>Nuestros
+                                    Servicios</a>
+                                <a class="text-white-50 mb-2" href="price.html"><i class="fa fa-angle-right mr-2"></i>Precios</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6 mb-5">
-                        <h5 class="text-white text-uppercase mb-4">Nuestros Servicios</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Cuidado de Uñas</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Manicura</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Pedicura</a>
-                            <a class="text-white-50 mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Diseño de Uñas</a>
-                            <a class="text-white-50" href="#"><i class="fa fa-angle-right mr-2"></i>Tratamientos para Uñas</a>
+                        <div class="col-sm-6 mb-5">
+                            <h5 class="text-white text-uppercase mb-4">Nuestros Servicios</h5>
+                            <div class="d-flex flex-column justify-content-start">
+                                <a class="text-white-50 mb-2" href="service.html"><i class="fa fa-angle-right mr-2"></i>Cuidado de
+                                    Uñas</a>
+                                <a class="text-white-50 mb-2" href="service.html"><i
+                                        class="fa fa-angle-right mr-2"></i>Manicura</a>
+                                <a class="text-white-50 mb-2" href="service.html"><i
+                                        class="fa fa-angle-right mr-2"></i>Pedicura</a>
+                                <a class="text-white-50 mb-2" href="service.html"><i class="fa fa-angle-right mr-2"></i>Diseño de
+                                    Uñas</a>
+                                <a class="text-white-50" href="service.html"><i class="fa fa-angle-right mr-2"></i>Tratamientos
+                                    para Uñas</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-sm-12 mb-5">
-                        <h5 class="text-white text-uppercase mb-4">Boletín</h5>
-                        <div class="w-100">
-                            <div class="input-group">
-                                <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Tu dirección de correo electrónico">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary px-4">Suscribirse</button>
+                        <div class="col-sm-12 mb-5">
+                            <h5 class="text-white text-uppercase mb-4">Boletín</h5>
+                            <div class="w-100">
+                                <div class="input-group">
+                                    <input type="text" class="form-control border-light" style="padding: 30px;"
+                                        placeholder="Tu dirección de correo electrónico">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary px-4">Suscribirse</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -498,21 +505,18 @@ if(isset($_GET['opcion'])) {
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid bg-dark text-light border-top py-4" style="border-color: rgba(256, 256, 256, .15) !important;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">Zona Beauty</a>. Todos los derechos reservados.</p>
-            </div>
-            <div class="col-md-6 text-center text-md-right">
-                <p class="m-0 text-white">Diseñado por <a href="https://htmlcodex.com">HTML Codex</a></p>
+    <div class="container-fluid bg-dark text-light border-top py-4"
+        style="border-color: rgba(256, 256, 256, .15) !important;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+                    <p class="m-0 text-white">&copy; <a href="#">Zona Beauty</a>. Todos los derechos reservados.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Footer End -->
-
+    <!-- Footer End -->
+     
 <!-- Back to Top -->
 <a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
