@@ -68,7 +68,6 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
                 <a href="usuario/about.php" class="nav-item nav-link">Nosotros</a>
-                <a href="usuario/service.php" class="nav-item nav-link">Servicios</a>
                 <a href="usuario/price.php" class="nav-item nav-link">Precios</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
@@ -164,7 +163,7 @@ if(isset($_GET['opcion'])) {
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-lg-6 pb-5 pb-lg-0">
-                    <img class="img-fluid w-100" src="img/about.jpg" alt="Sobre nosotros">
+                    <img class="img-fluid w-100" src="../img/about.jpg" alt="Sobre nosotros">
                 </div>
                 <div class="col-lg-6">
                     <h6 class="d-inline-block text-primary text-uppercase bg-light py-1 px-2">Nosotros</h6>
@@ -373,7 +372,7 @@ if(isset($_GET['opcion'])) {
         <div class="row">
             <div class="col-lg-6 mx-auto">
                 <div class="team position-relative overflow-hidden mb-5">
-                    <img class="img-fluid" src="img/team-1.jpg" alt="" width="600" height="200">
+                    <img class="img-fluid" src="../img/team-1.jpg" alt="" width="600" height="200">
                     <div class="position-relative text-center">
                         <div class="team-text bg-primary text-white">
                             <h5 class="text-white text-uppercase">Bertha Monti</h5>

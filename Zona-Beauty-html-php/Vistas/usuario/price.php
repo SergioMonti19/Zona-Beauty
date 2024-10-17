@@ -73,7 +73,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
     <!-- Navbar Inicio -->
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
-        <a href="index.html" class="navbar-brand ml-lg-3">
+        <a href="../index.php" class="navbar-brand ml-lg-3">
             <h1 class="m-0 text-primary"><span class="text-dark">Zona</span> Beauty</h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -81,20 +81,18 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         </button>
         <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
             <div class="navbar-nav m-auto py-0">
-                <a href="index.html" class="nav-item nav-link">Inicio</a>
-                <a href="about.html" class="nav-item nav-link">Sobre Nosotros</a>
-                <a href="service.html" class="nav-item nav-link">Servicios</a>
-                <a href="price.html" class="nav-item nav-link active">Precios</a>
+                <a href="../index.php" class="nav-item nav-link">Inicio</a>
+                <a href="about.php" class="nav-item nav-link">Sobre Nosotros</a>
+                <a href="price.php" class="nav-item nav-link active">Precios</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Páginas</a>
                     <div class="dropdown-menu rounded-0 m-0">
-                        <a href="appointment.html" class="dropdown-item">Citas</a>
-                        <a href="opening.html" class="dropdown-item">Horarios</a>
-                        <a href="team.html" class="dropdown-item">Nuestro Equipo</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonios</a>
+                        <a href="cita.php" class="dropdown-item">Citas</a>
+                        <a href="opening.php" class="dropdown-item">Horarios</a>
+                        <a href="team.php" class="dropdown-item">Nuestro Equipo</a>
                     </div>
                 </div>
-                <a href="Vistas/usuario/contact.php" class="nav-item nav-link">Contacto</a>
+                <a href="contact.php" class="nav-item nav-link">Contacto</a>
             </div>
             <a href="" class="btn btn-primary d-none d-lg-block">Reserva Ahora</a>
         </div>
@@ -123,7 +121,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         <div class="row">
             <div class="col-lg-5" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="img/pricing.jpg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="../../img/pricing.jpg" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-7 pt-5 pb-lg-5">
@@ -185,7 +183,7 @@ if(!isset($usuario)){ header("location:../Vistas/Login.php"); }
         <div class="row">
             <div class="col-lg-6" style="min-height: 500px;">
                 <div class="position-relative h-100">
-                    <img class="position-absolute w-100 h-100" src="img/opening.jpg" style="object-fit: cover;">
+                    <img class="position-absolute w-100 h-100" src="../../img/opening.jpg" style="object-fit: cover;">
                 </div>
             </div>
             <div class="col-lg-6 pt-5 pb-lg-5">
